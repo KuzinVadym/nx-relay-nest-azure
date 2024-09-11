@@ -1,0 +1,5 @@
+{
+  "src": "./apps/relay-client",
+  "schema": "./schema.gql",
+  "language": "typescript"
+}

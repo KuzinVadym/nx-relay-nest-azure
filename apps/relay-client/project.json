@@ -1,0 +1,23 @@
+{
+  "name": "relay-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/relay-client/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "relay-compiler"
+      },
+      "configurations": {
+        "production": {
+          "command": "echo skip"
+        },
+        "local-docker": {
+          "command": "relay-compiler"
+        }
+      }
+    }
+  }
+}

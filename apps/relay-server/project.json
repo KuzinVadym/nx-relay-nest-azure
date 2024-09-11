@@ -1,0 +1,47 @@
+{
+  "name": "relay-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/relay-server/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/relay-server",
+        "main": "apps/relay-server/src/main.ts",
+        "tsConfig": "apps/relay-server/tsconfig.app.json",
+        "webpackConfig": "apps/relay-server/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "generateLockfile": false
+        },
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "generatePackageJson": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "relay-server:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "relay-server:build:development"
+        },
+        "production": {
+          "buildTarget": "relay-server:build:production"
+        }
+      }
+    }
+  }
+}
