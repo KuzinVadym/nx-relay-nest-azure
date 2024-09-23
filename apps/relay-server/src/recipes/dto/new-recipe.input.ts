@@ -8,6 +8,6 @@ export class NewRecipeInput {
   @Field({ nullable: true })
   description?: string;
 
-  @Field(type => [String])
-  ingredients: string[];
+  @Field(type => [String], { nullable: true })
+  ingredients?: string[];
 }

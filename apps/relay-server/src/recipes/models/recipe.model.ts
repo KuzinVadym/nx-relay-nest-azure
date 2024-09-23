@@ -11,6 +11,9 @@ export class Recipe {
   @Field({ nullable: true })
   description?: string;
 
+  @Field({ nullable: false, defaultValue: false })
+  completed: boolean;
+
   @Field()
   creationDate: Date;
 

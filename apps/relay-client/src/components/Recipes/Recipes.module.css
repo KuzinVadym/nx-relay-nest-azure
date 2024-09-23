@@ -1,0 +1,9 @@
+.recipes-main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: var(--page-margin);
+    overflow: hidden;
+    background-color: aqua;
+}
+
